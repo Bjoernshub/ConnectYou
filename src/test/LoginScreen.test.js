@@ -15,6 +15,5 @@ describe('LoginScreen', () => {
     fireEvent.changeText(emailInput, 'test@example.com');
     expect(emailInput.props.value).toBe('test@example.com');
   });
-
-  // Add more tests as needed
+  
 });

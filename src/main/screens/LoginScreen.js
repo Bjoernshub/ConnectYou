@@ -1,4 +1,4 @@
-// screens/LoginScreen.js
+//LoginScreen.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
 

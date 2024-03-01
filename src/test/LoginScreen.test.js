@@ -16,4 +16,19 @@ describe('LoginScreen', () => {
     expect(emailInput.props.value).toBe('test@example.com');
   });
 
+  it('allows entering a password', () => {
+    const { getByPlaceholderText } = render(<LoginScreen />);
+    const passwordInput = getByPlaceholderText('Password');
+    fireEvent.changeText(passwordInput, 'mypassword');
+    expect(passwordInput.props.value).toBe('mypassword');
+  });
+
+  it('navigates to the register screen when the register button is pressed', () => {
+    const mockNavigate = jest.fn();
+    const { getByText } = render(<LoginScreen navigation={{ navigate: mockNavigate }} />);
+    const registerButton = getByText("Don't have an account? Register");
+    fireEvent.press(registerButton);
+    expect(mockNavigate).toHaveBeenCalledWith('Register');
+  });
+
 });
